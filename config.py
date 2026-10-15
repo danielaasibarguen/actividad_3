@@ -1,8 +1,8 @@
 import os 
-from patchlib import Path 
+from pathlib import Path 
 from dotenv import load_dotenv
 
-load_dotenv(Patch(__file__).resolve().parent /".env")
+load_dotenv(Path(__file__).resolve().parent /".env")
 
 DATABASE_URL = os.environ["DATABASE_URL"]
 

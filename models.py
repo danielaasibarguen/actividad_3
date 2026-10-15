@@ -1,5 +1,5 @@
 from sqlalchemy import CheckConstraint, Column, Integer, String
-from alchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from database import Base
 
 class Personal(Base):

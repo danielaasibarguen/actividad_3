@@ -1,5 +1,5 @@
 from uuid import uuid4
-from sqlachemy import func, select
+from sqlalchemy import func, select
 from config import(
     TOTAL_PERSONAS,
     BATCH_SIZE,
@@ -7,9 +7,9 @@ from config import(
 )
 from database import SessionLocal
 from models import Personal
-from services.tablas import crear_tablas
-from services.generador import generar_personas
-from services.personas import insertar_persona
+from service.tablas import crear_tablas
+from service.generador import generar_personas
+from service.personas import insertar_persona
 
 def contar_personas() -> int:
     with SessionLocal.begin() as session:
@@ -19,7 +19,7 @@ def contar_personas() -> int:
 def main() -> None:
     crear_tablas()
     print("Tablas creadas correctamente.")
-    correo_prueba= (f"daniela.{uuid4().hex}@{Faker().free_email_domain()}")
+    correo_prueba= (f"daniela.{uuid4().hex}@hotmail.com")
     persona_id = insertar_persona(
         nombre="Daniela",
         apellido="Gómez",
@@ -28,7 +28,8 @@ def main() -> None:
         direccion="Calle 123 # 45-67",
         profesion="Ingeniera",
         ciudad="Bogotá",
-        genero="Femenino"
+        genero="F",
+        correo=correo_prueba
     )
     print(f"Persona insertada con ID: {persona_id}")
 

@@ -1,6 +1,5 @@
-from database import BASE, engine
-from models import Persona
+from database import Base, engine
+from models import Personal
 
 def crear_tablas()->None:
-    BASE.metadata.create_all(bind=engine)
-    
+    Base.metadata.create_all(bind=engine)
