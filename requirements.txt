@@ -1,4 +1,4 @@
 SQLAlchemy==2.1.4
 Faker
 python-dotenv
-psycopg[binary]
+pymysql 
